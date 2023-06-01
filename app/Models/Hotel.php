@@ -18,6 +18,11 @@ class Hotel extends Model implements HasMedia
         'rating',
     ];
 
+    public function plans()
+    {
+        return $this->morphMany(Plan::class, 'plantable');
+    }
+
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('default')

@@ -82,20 +82,21 @@
                         <img src="{{ $hotel->getFirstMediaUrl() }}" alt="" />
                         <h2>{{ $hotel->name }}</h2>
                         <p>{{ $hotel->description }}</p>
+                        <p>العنوان : {{ $hotel->location }}</p>
                         <div class="constrant">
+                            <div class="show">
+                                <a href="{{ route('home.hotel.plan', $hotel->id) }}" style="padding: 1px 20px;">احجز الان</a>
+                            </div>
                             <div class="icon">
                                 @php
                                     $rating = 5 - $hotel->rating;
                                 @endphp
                                 @for ($i = 0; $i < $hotel->rating; $i++)
-                                    <i class="fa-solid fa-star"></i>
+                                    <i style="color: #2196f3;" class="fa-solid fa-star"></i>
                                 @endfor
                                 @for ($i = 0; $i < $rating; $i++)
-                                    <i class="fa-regular fa-star"></i>
+                                    <i style="color: #2196f3;" class="fa-regular fa-star"></i>
                                 @endfor
-                            </div>
-                            <div class="show">
-                                <button>Show More</button>
                             </div>
                         </div>
                     </div>

@@ -97,7 +97,7 @@
                 <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
-                    <!-- Dashboards -->
+                    {{-- <!-- Dashboards -->
                     <li class="menu-item active open">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
@@ -177,7 +177,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                     {{-- <!-- Apps & Pages -->
                     <li class="menu-item">
@@ -231,7 +231,7 @@
                     </li>
 
                     <li class="menu-item">
-                        <a href="{{ route('dashboard.users.index') }}" class="menu-link">
+                        <a href="{{ route('dashboard.admins.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-users"></i>
                             <div data-i18n="Users">Users</div>
                         </a>
@@ -245,9 +245,9 @@
                     </li>
 
                     <li class="menu-item">
-                        <a href="app-calendar.html" class="menu-link">
+                        <a href="{{ route('dashboard.contacts.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-calendar"></i>
-                            <div data-i18n="Calendar">Calendar</div>
+                            <div data-i18n="Contact">Contact</div>
                         </a>
                     </li>
 
@@ -586,6 +586,7 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Components</span>
                     </li>
+
                     <!-- Cards -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -621,6 +622,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <!-- User interface -->
                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
@@ -832,6 +834,7 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Forms &amp; Tables</span>
                     </li>
+
                     <!-- Forms -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -891,6 +894,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-layout-navbar"></i>
@@ -914,6 +918,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
@@ -932,12 +937,14 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="menu-item">
                         <a href="form-validation.html" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-checkbox"></i>
                             <div data-i18n="Form Validation">Form Validation</div>
                         </a>
                     </li>
+
                     <!-- Tables -->
                     <li class="menu-item">
                         <a href="tables-basic.html" class="menu-link">
@@ -945,6 +952,7 @@
                             <div data-i18n="Tables">Tables</div>
                         </a>
                     </li>
+
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-layout-grid"></i>
@@ -973,6 +981,7 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Charts &amp; Maps</span>
                     </li>
+
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-chart-pie"></i>

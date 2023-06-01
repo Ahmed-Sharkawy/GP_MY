@@ -727,7 +727,7 @@ i {
     position: relative;
 }
 
-.pricing .box ul li:before {
+.pricing .box ul li span {
     font-family: "Font Awesome 5 Free";
     position: absolute;
     left: 20px;
@@ -1396,7 +1396,8 @@ th {
 }
 
 .hotel .container .cards-wrapper .hotel-card img {
-    max-width: 100%;
+    width: 100%;
+    height: 255px;
     border-radius: 5px;
 }
 
@@ -1418,15 +1419,15 @@ th {
     padding-bottom: 10px;
 }
 
-.hotel .container .cards-wrapper .hotel-card .constrant .show button,
-.about .row .content button {
+.hotel .container .cards-wrapper .hotel-card .constrant .show a,
+.about .row .content a {
     background-color: white;
     border: 1px solid var(--main-color);
     border-radius: 5px;
     transition: var(--main-transition);
 }
 
-.hotel .container .cards-wrapper .hotel-card .constrant .show button:hover,
+.hotel .container .cards-wrapper .hotel-card .constrant .show a:hover,
 .about .row .content button:hover {
     color: white;
     background-color: var(--main-color);

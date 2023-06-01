@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
+    @stack('css')
 </head>
 
 <body>
@@ -35,6 +36,7 @@
                 <li><a href="{{ route('home.hotel') }}">الفنادق</a></li>
                 <li><a href="{{ route('home.about') }}"> من نحن</a></li>
                 <li><a href="{{ route('home.contact') }} "> تواصل معنا</a></li>
+                <li><a href="{{ route('home.logout') }} ">تسجيل الخروج</a></li>
             </ul>
         </div>
     </div>

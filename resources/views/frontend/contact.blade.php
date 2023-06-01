@@ -8,10 +8,11 @@
             <div class="discount" id="discount">
                 <div class="form">
                     <div class="content">
-                        <form action="#">
+                        <form action="{{ route('home.contact.store') }}" method="POST">
+                            @csrf
                             <input type="text" name="name" class="input" placeholder="اسمك" required>
                             <input type="email" name="email" class="input" placeholder="عنوان الرحلة"  required>
-                            <input type="number" name="" class="input"  placeholder="الرقم" required>
+                            <input type="number" name="phone" class="input"  placeholder="الرقم" required>
                             <textarea name="message" class="input" placeholder="أخبرنا عن احتياجاتك"></textarea>
                             <!--حط لينك ال باي بال فال href -->
                             <a href="#"><input type="submit" value="ارسال"></a>

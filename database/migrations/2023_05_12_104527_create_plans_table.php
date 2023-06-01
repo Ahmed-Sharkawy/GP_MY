@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
+            $table->morphs('plantable');
             $table->string('name');
-            $table->integer('days');
-            $table->integer('price');
+            $table->string('days');
+            $table->float('price');
+            $table->boolean('mycosis')->default(0);
+            $table->boolean('lunch')->default(0);
+            $table->boolean('dinner')->default(0);
             $table->timestamps();
         });
     }

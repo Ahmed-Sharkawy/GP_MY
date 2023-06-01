@@ -37,4 +37,10 @@ class AuthController extends Controller
         ] + $request->validated());
         return redirect()->route('login');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }

@@ -50,20 +50,6 @@
             <div class="cards text-center">
                 <div class="container">
                     <div class="row d-flex">
-                        <div class="col-md-6 col-lg-4">
-                            <div class="box">
-                                <img class="img-fluid" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                                <h4 class="p-3 text-light">الاهداف</h4>
-                                <blockquote>
-                                    نبذه مختصرة نبذه مختصرة نبذه مختصرة نبذه مختصرةنبذه مختصرة
-                                    نبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرة
-                                </blockquote>
-                                <a href="goals.html">
-                                    <button type="button" class="btn btn-primary mb-4">
-                                        اذهب
-                                    </button></a>
-                            </div>
-                        </div>
 
                         <div class="col-md-6 col-lg-4">
                             <div class="box">
@@ -79,43 +65,16 @@
                                     </button></a>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-lg-4">
                             <div class="box">
                                 <img class="img-fluid" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                                <h4 class="p-3 text-light" >الفنادق</h4>
+                                <h4 class="p-3 text-light">الفنادق</h4>
                                 <blockquote>
                                     نبذه مختصرة نبذه مختصرة نبذه مختصرة نبذه مختصرةنبذه مختصرة
                                     نبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرة
                                 </blockquote>
                                 <a href="{{ route('home.hotel') }}">
-                                    <button type="button" class="btn btn-primary mb-4">
-                                        اذهب
-                                    </button></a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="box">
-                                <img class="img-fluid" src="{{ asset('frontend/img/fon3.jpg') }}" alt="" />
-                                <h4 class="p-3 text-light">الجولات</h4>
-                                <blockquote>
-                                    نبذه مختصرة نبذه مختصرة نبذه مختصرة نبذه مختصرةنبذه مختصرة
-                                    نبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرة
-                                </blockquote>
-                                <a href="tour.html">
-                                    <button type="button" class="btn btn-primary mb-4">
-                                        اذهب
-                                    </button></a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="box">
-                                <img class="img-fluid" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                                <h4 class="p-3 text-light">احجز رحلتك</h4>
-                                <blockquote>
-                                    نبذه مختصرة نبذه مختصرة نبذه مختصرة نبذه مختصرةنبذه مختصرة
-                                    نبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرة
-                                </blockquote>
-                                <a href="book.html">
                                     <button type="button" class="btn btn-primary mb-4">
                                         اذهب
                                     </button></a>
@@ -141,19 +100,23 @@
         </div>
         <div class="container">
             <div class="contactForm">
-                <form action="" method="POST">
-                    <h2>إرسال رسالة</h2>
+                <form action="{{ route('home.contact.store') }}" method="POST">
+                    @csrf <h2>إرسال رسالة</h2>
                     <div class="inputBox">
                         <label for="">اسمك</label>
-                        <input type="text" required />
+                        <input type="text" name="name" style="padding: 5px 10px" required />
                     </div>
                     <div class="inputBox">
                         <label for="">الجيميل الخاص بك</label>
-                        <input type="email" name="email" placeholder="" required />
+                        <input type="email" name="email" style="padding: 5px 10px" placeholder="" required />
+                    </div>
+                    <div class="inputBox">
+                        <label for="">اكتب رقم الهاتف</label>
+                        <input type="number" name="phone" style="padding: 5px 10px" required />
                     </div>
                     <div class="inputBox">
                         <label for="">اكتب رسالتك</label>
-                        <input type="text" name="message" required />
+                        <textarea name="message" class="input" style="padding: 5px 10px" placeholder="أخبرنا عن احتياجاتك"></textarea>
                     </div>
                     <div class="inputBox">
                         <input type="submit" value="ارسل" />

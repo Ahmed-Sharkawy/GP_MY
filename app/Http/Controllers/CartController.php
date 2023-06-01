@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Plan;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
-class PlanController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PlanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Plan  $plan
+     * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(Plan $plan)
+    public function show(Cart $cart)
     {
         //
     }
@@ -52,10 +52,10 @@ class PlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Plan  $plan
+     * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function edit(Plan $plan)
+    public function edit(Cart $cart)
     {
         //
     }
@@ -64,10 +64,10 @@ class PlanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Plan  $plan
+     * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Plan $plan)
+    public function update(Request $request, Cart $cart)
     {
         //
     }
@@ -75,10 +75,10 @@ class PlanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Plan  $plan
+     * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plan $plan)
+    public function destroy(Cart $cart)
     {
         //
     }

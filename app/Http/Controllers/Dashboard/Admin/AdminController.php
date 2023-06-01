@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard\Admin;
 
 use App\Models\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Admin\StoreAdminRequest;
 use App\Http\Requests\Dashboard\Admin\UpdateAdminRequest;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -16,7 +17,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $admins = Admin::get();
+        return view('dashboard.admin.index', compact('admins'));
     }
 
     /**
@@ -26,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.create');
     }
 
     /**
@@ -37,7 +39,8 @@ class AdminController extends Controller
      */
     public function store(StoreAdminRequest $request)
     {
-        //
+        Admin::create($request->validated());
+        return redirect()->route('dashboard.admins.index');
     }
 
     /**
@@ -59,7 +62,7 @@ class AdminController extends Controller
      */
     public function edit(Admin $admin)
     {
-        //
+        return view('dashboard.admin.edit', compact('admin'));
     }
 
     /**
@@ -71,7 +74,8 @@ class AdminController extends Controller
      */
     public function update(UpdateAdminRequest $request, Admin $admin)
     {
-        //
+        $admin->update($request->validated());
+        return redirect()->route('dashboard.admins.index');
     }
 
     /**

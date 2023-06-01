@@ -13,10 +13,10 @@
                                 <div class="content-left">
                                     <span>Session</span>
                                     <div class="d-flex align-items-center my-1">
-                                        <h4 class="mb-0 me-2">{{ $users->count() }}</h4>
+                                        <h4 class="mb-0 me-2">{{ $plans->count() }}</h4>
                                         <span class="text-success">(+29%)</span>
                                     </div>
-                                    <span>Total Users</span>
+                                    <span>Total Hotels</span>
                                 </div>
                                 <span class="badge bg-label-primary rounded p-2">
                                     <i class="ti ti-user ti-sm"></i>
@@ -87,42 +87,50 @@
             <!-- Users List Table -->
             <div class="card">
                 <div class="card-header border-bottom">
-                    <a href="{{ route('dashboard.users.create') }}" class="btn btn-primary waves-effect waves-light">Create
-                        User</a>
+                    <a href="{{ route('dashboard.hotels.create') }}" class="btn btn-primary waves-effect waves-light">Create
+                        Hotel</a>
                 </div>
                 <div class="card-datatable table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                         <div class="card">
-                            <h5 class="card-header">All Users</h5>
+                            <h5 class="card-header">All Hotel</h5>
                             <div class="">
                                 <table class="table card-table">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
+                                            <th>Image</th>
                                             <th>Name</th>
-                                            <th>Email</th>
+                                            <th>Description</th>
                                             <th>Location</th>
                                             <th>Status</th>
+                                            <th>Created_at</th>
+                                            <th>Updated_at</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $user)
+                                        @foreach ($plans as $plan)
                                             <tr>
-                                                <td>{{ $user->id }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->location }}</td>
+                                                <td>{{ $hotel->id }}</td>
+                                                <td> <img src="{{ $hotel->getFirstMediaUrl() }}" width="50px" height="50px" class="rounded-circle"></td>
+                                                <td>{{ $hotel->name }}</td>
+                                                <td>{{ $hotel->description }}</td>
+                                                <td>{{ $hotel->location }}</td>
                                                 <td><span class="badge bg-label-primary me-1">Active</span></td>
+                                                <td>{{ $hotel->updated_at->format('Y m d') }}</td>
+                                                <td>{{ $hotel->created_at->format('Y m d') }}</td>
                                                 <td>
                                                     <div class="dropdown">
                                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                             data-bs-toggle="dropdown"><i
                                                                 class="ti ti-dots-vertical"></i></button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="{{ route('dashboard.users.edit', $user->id) }}"><i
+                                                            <a href="{{ route('dashboard.hotels.edit', $hotel->id) }}"
+                                                                class="dropdown-item"><i
                                                                     class="ti ti-pencil me-1"></i>Edit</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);"><i
+                                                            <a href="{{ route('dashboard.hotels.destroy', $hotel->id) }}"
+                                                                class="dropdown-item"><i
                                                                     class="ti ti-trash me-1"></i>Delete</a>
                                                         </div>
                                                     </div>
@@ -136,6 +144,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Offcanvas to add new user -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAddUser"
                 aria-labelledby="offcanvasAddUserLabel">

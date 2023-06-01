@@ -16,7 +16,7 @@
                             <small class="text-muted float-end">Default label</small>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.users.store') }}" class="needs-validation" method="POST"
+                            <form action="{{ route('dashboard.admins.store') }}" class="needs-validation" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
@@ -29,7 +29,16 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="basic-default-company">Location Hotel</label>
+                                    <label class="form-label" for="basic-default-company">Email</label>
+                                    <input type="email" name="email"
+                                        class="form-control @error('email') is-invalid @enderror" id="basic-default-company"
+                                        placeholder="ACME Inc.">
+                                    @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="basic-default-company">Location</label>
                                     <input type="text" name="location"
                                         class="form-control @error('location') is-invalid @enderror" id="basic-default-company"
                                         placeholder="ACME Inc.">
@@ -38,27 +47,11 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="basic-default-phone">Rating Hotel</label>
-                                    <input type="text" name="rating" id="basic-default-phone"
-                                        class="form-control @error('rating') is-invalid @enderror phone-mask"
-                                        placeholder="658 799 8941">
-                                    @error('rating')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="basic-default-message">Description</label>
-                                    <textarea id="basic-default-message" name="description" class="form-control @error('description') is-invalid @enderror"
-                                        placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
-                                    @error('description')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Image Hotel</label>
-                                    <input class="form-control @error('image') is-invalid @enderror" type="file"
-                                        name="image" id="formFile">
-                                    @error('image')
+                                    <label class="form-label" for="basic-default-company">Password</label>
+                                    <input type="password" name="password"
+                                        class="form-control @error('password') is-invalid @enderror" id="basic-default-company"
+                                        placeholder="ACME Inc.">
+                                    @error('password')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>

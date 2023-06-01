@@ -6,6 +6,8 @@ use App\Models\Hotel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\Hotel\StoreHotelRequest;
 use App\Http\Requests\Dashboard\Hotel\UpdateHotelRequest;
+use App\Http\Requests\Dashboard\Hotel\StorePlanHotelRequest;
+use App\Models\Plan;
 
 class HotelController extends Controller
 {
@@ -45,17 +47,6 @@ class HotelController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Hotel  $hotel
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Hotel $hotel)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Hotel  $hotel
@@ -79,7 +70,7 @@ class HotelController extends Controller
         if ($request->image)
             $hotel->addMedia($request->image)->toMediaCollection();
 
-        return view('dashboard.hotel.index');
+        return redirect()->route('dashboard.hotels.index');
     }
 
     /**
@@ -91,5 +82,28 @@ class HotelController extends Controller
     public function destroy(Hotel $hotel)
     {
         dd($hotel);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Hotel  $hotel
+     * @return \Illuminate\Http\Response
+     */
+    public function plan(Hotel $hotel)
+    {
+        return view('dashboard.plan.create', compact('hotel'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreHotelRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function planStore(StorePlanHotelRequest $request, Hotel $hotel)
+    {
+        $hotel->plans()->create($request->validated());
+        return redirect()->route('dashboard.hotels.index');
     }
 }
