@@ -87,7 +87,7 @@
             <!-- Users List Table -->
             <div class="card">
                 <div class="card-header border-bottom">
-                    <a href="{{ route('dashboard.hotels.create') }}" class="btn btn-primary waves-effect waves-light">Create
+                    <a href="{{ route('dashboard.trips.create') }}" class="btn btn-primary waves-effect waves-light">Create
                         Hotel</a>
                 </div>
                 <div class="card-datatable table-responsive">
@@ -126,10 +126,10 @@
                                                             data-bs-toggle="dropdown"><i
                                                                 class="ti ti-dots-vertical"></i></button>
                                                         <div class="dropdown-menu">
-                                                            <a href="{{ route('dashboard.hotels.edit', $hotel->id) }}"
+                                                            <a href="{{ route('dashboard.trips.edit', $hotel->id) }}"
                                                                 class="dropdown-item"><i
                                                                     class="ti ti-pencil me-1"></i>Edit</a>
-                                                            <a href="{{ route('dashboard.hotels.destroy', $hotel->id) }}"
+                                                            <a href="{{ route('dashboard.trips.destroy', $hotel->id) }}"
                                                                 class="dropdown-item"><i
                                                                     class="ti ti-trash me-1"></i>Delete</a>
                                                         </div>

@@ -543,12 +543,15 @@ i {
 }
 
 .prog .container {
-    display: grid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 40px;
 }
 
 .prog .box {
+    margin-bottom: 40px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 10%);
     background-color: white;
     border-radius: 6px;

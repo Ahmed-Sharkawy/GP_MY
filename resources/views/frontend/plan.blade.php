@@ -6,7 +6,7 @@
         <div class="dots dots-down"></div>
         <h2 class="main-title" id="details">تفاصيل الرحلة</h2>
         <div class="container">
-            @foreach ($hotel->plans as $plan)
+            @foreach ($data->plans as $plan)
                 <div class="box">
                     <div class="title">الاساسية</div>
                     <img src="{{ asset('frontend/img/hosting-basic.png') }}" alt="">

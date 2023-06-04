@@ -13,7 +13,7 @@
                                 <div class="content-left">
                                     <span>Session</span>
                                     <div class="d-flex align-items-center my-1">
-                                        <h4 class="mb-0 me-2">{{ $hotels->count() }}</h4>
+                                        <h4 class="mb-0 me-2">{{ $trips->count() }}</h4>
                                         <span class="text-success">(+29%)</span>
                                     </div>
                                     <span>Total Hotels</span>
@@ -87,13 +87,13 @@
             <!-- Users List Table -->
             <div class="card">
                 <div class="card-header border-bottom">
-                    <a href="{{ route('dashboard.hotels.create') }}" class="btn btn-primary waves-effect waves-light">Create
-                        Hotel</a>
+                    <a href="{{ route('dashboard.trips.create') }}" class="btn btn-primary waves-effect waves-light">Create
+                        Trip</a>
                 </div>
                 <div class="card-datatable table-responsive">
                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                         <div class="card">
-                            <h5 class="card-header">All Hotel</h5>
+                            <h5 class="card-header">All Trip</h5>
                             <div class="">
                                 <table class="table card-table">
                                     <thead>
@@ -110,31 +110,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($hotels as $hotel)
+                                        @foreach ($trips as $trip)
                                             <tr>
-                                                <td>{{ $hotel->id }}</td>
-                                                <td> <img src="{{ $hotel->getFirstMediaUrl() }}" width="50px"
+                                                <td>{{ $trip->id }}</td>
+                                                <td> <img src="{{ $trip->getFirstMediaUrl() }}" width="50px"
                                                         height="50px" class="rounded-circle"></td>
-                                                <td>{{ $hotel->name }}</td>
-                                                <td>{{ $hotel->description }}</td>
-                                                <td>{{ $hotel->location }}</td>
+                                                <td>{{ $trip->name }}</td>
+                                                <td>{{ $trip->description }}</td>
+                                                <td>{{ $trip->location }}</td>
                                                 <td><span class="badge bg-label-primary me-1">Active</span></td>
-                                                <td>{{ $hotel->updated_at->format('Y m d') }}</td>
-                                                <td>{{ $hotel->created_at->format('Y m d') }}</td>
+                                                <td>{{ $trip->updated_at->format('Y m d') }}</td>
+                                                <td>{{ $trip->created_at->format('Y m d') }}</td>
                                                 <td>
                                                     <div class="dropdown">
                                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                             data-bs-toggle="dropdown"><i
                                                                 class="ti ti-dots-vertical"></i></button>
                                                         <div class="dropdown-menu">
-                                                            <a href="{{ route('dashboard.hotels.plan.create', $hotel->id) }}"
+                                                            <a href="{{ route('dashboard.trips.plan.create', $trip->id) }}"
                                                                 class="dropdown-item"><i
                                                                     class="menu-icon tf-icons ti ti-layout-navbar"></i>Create
                                                                 Plan</a>
-                                                            <a href="{{ route('dashboard.hotels.edit', $hotel->id) }}"
+                                                            <a href="{{ route('dashboard.trips.edit', $trip->id) }}"
                                                                 class="dropdown-item"><i
                                                                     class="ti ti-pencil me-1"></i>Edit</a>
-                                                            <a href="{{ route('dashboard.hotels.destroy', $hotel->id) }}"
+                                                            <a href="{{ route('dashboard.trips.destroy', $trip->id) }}"
                                                                 class="dropdown-item"><i
                                                                     class="ti ti-trash me-1"></i>Delete</a>
                                                         </div>

@@ -11,7 +11,6 @@ class PayPalController extends Controller
 {
     public function paypal(Request $request)
     {
-        dd($request);
         $data = [];
         $data['items'] = [
             [
@@ -39,7 +38,6 @@ class PayPalController extends Controller
         }
 
         $data['total'] = $total;
-
         $provider = new ExpressCheckout;
         $response = $provider->setExpressCheckout($data);
         return redirect($response['paypal_link']);

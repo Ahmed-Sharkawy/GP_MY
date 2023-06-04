@@ -59,7 +59,7 @@
                                     نبذه مختصرة نبذه مختصرة نبذه مختصرة نبذه مختصرةنبذه مختصرة
                                     نبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرةنبذه مختصرة
                                 </blockquote>
-                                <a href="program.html">
+                                <a href="{{ route('home.programs') }}">
                                     <button type="button" class="btn btn-primary mb-4">
                                         اذهب
                                     </button></a>

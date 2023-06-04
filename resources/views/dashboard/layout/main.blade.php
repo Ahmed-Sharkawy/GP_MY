@@ -40,11 +40,12 @@
     <link rel="stylesheet" href="{{ asset('backend/vendor/libs/apex-charts/apex-charts.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/vendor/libs/swiper/swiper.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('backend/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
     <link rel="stylesheet"
         href="{{ asset('backend/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}" />
 
-        @stack('css')
+    @stack('css')
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('backend/vendor/css/pages/cards-advance.css') }}" />
     <!-- Helpers -->
@@ -233,14 +234,14 @@
                     <li class="menu-item">
                         <a href="{{ route('dashboard.admins.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-users"></i>
-                            <div data-i18n="Users">Users</div>
+                            <div data-i18n="Users">Admin</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
-                        <a href="{{ route('dashboard.hotels.index') }}" class="menu-link">
+                        <a href="{{ route('dashboard.trips.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-messages"></i>
-                            <div data-i18n="Hotels">Hotels</div>
+                            <div data-i18n="Trips">Trips</div>
                         </a>
                     </li>
 
@@ -250,7 +251,7 @@
                             <div data-i18n="Contact">Contact</div>
                         </a>
                     </li>
-
+{{--
                     <li class="menu-item">
                         <a href="app-kanban.html" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-layout-kanban"></i>
@@ -1023,7 +1024,7 @@
                             <i class="menu-icon tf-icons ti ti-file-description"></i>
                             <div data-i18n="Documentation">Documentation</div>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -1533,39 +1534,41 @@
                 </nav>
                 <!-- / Navbar -->
 
+                <!--  Main -->
                 @yield('main')
+                <!-- / Main -->
 
-            </div>
 
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-                <div class="container-xxl">
-                    <div
-                        class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
-                        <div>
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>2023
-                            , made with ❤️ by <a href="https://pixinvent.com" target="_blank"
-                                class="fw-semibold">Pixinvent</a>
-                        </div>
-                        <div>
-                            <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                                target="_blank">License</a>
-                            <a href="https://1.envato.market/pixinvent_portfolio" target="_blank"
-                                class="footer-link me-4">More Themes</a>
+                <!-- Footer -->
+                <footer class="content-footer footer bg-footer-theme">
+                    <div class="container-xxl">
+                        <div
+                            class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
+                            <div>
+                                ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>2023
+                                , made with ❤️ by <a href="https://pixinvent.com" target="_blank"
+                                    class="fw-semibold">Pixinvent</a>
+                            </div>
+                            <div>
+                                <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
+                                    target="_blank">License</a>
+                                <a href="https://1.envato.market/pixinvent_portfolio" target="_blank"
+                                    class="footer-link me-4">More Themes</a>
 
-                            <a href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/"
-                                target="_blank" class="footer-link me-4">Documentation</a>
+                                <a href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/"
+                                    target="_blank" class="footer-link me-4">Documentation</a>
 
-                            <a href="https://pixinvent.ticksy.com/" target="_blank"
-                                class="footer-link d-none d-sm-inline-block">Support</a>
+                                <a href="https://pixinvent.ticksy.com/" target="_blank"
+                                    class="footer-link d-none d-sm-inline-block">Support</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
-            <!-- / Footer -->
+                </footer>
+                <!-- / Footer -->
+            </div>
 
             <!-- / Layout page -->
         </div>

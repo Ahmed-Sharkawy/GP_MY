@@ -32,8 +32,8 @@
         <div class="container">
             <a href="{{ route('home') }}" class="logo">رحلة</a>
             <ul class="main-nav">
-                <li><a href="{{ route('home.program') }}">البرامج السياحية</a></li>
-                <li><a href="{{ route('home.hotel') }}">الفنادق</a></li>
+                <li><a href="{{ route('home.programs') }}">البرامج السياحية</a></li>
+                {{-- <li><a href="{{ route('home.hotel') }}">الفنادق</a></li> --}}
                 <li><a href="{{ route('home.about') }}"> من نحن</a></li>
                 <li><a href="{{ route('home.contact') }} "> تواصل معنا</a></li>
                 <li><a href="{{ route('home.logout') }} ">تسجيل الخروج</a></li>

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\HotelController;
+use App\Http\Controllers\Dashboard\TripController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\User\UserController;
 use App\Http\Controllers\Dashboard\Auth\LoginController;
@@ -32,14 +32,14 @@ Route::get('admins/{admin}/edit', [AdminController::class, 'edit'])->name('admin
 Route::put('admins/{admin}/update', [AdminController::class, 'update'])->name('admins.update');
 Route::get('admins/{admin}/destroy', [AdminController::class, 'destroy'])->name('admins.destroy');
 
-Route::get('hotels', [HotelController::class, 'index'])->name('hotels.index');
-Route::get('hotels/create', [HotelController::class, 'create'])->name('hotels.create');
-Route::post('hotels/store', [HotelController::class, 'store'])->name('hotels.store');
-Route::get('hotels/{hotel}/plan', [HotelController::class, 'plan'])->name('hotels.plan.create');
-Route::post('hotels/{hotel}/plan', [HotelController::class, 'planStore'])->name('hotels.plan.store');
-Route::get('hotels/{hotel}/edit', [HotelController::class, 'edit'])->name('hotels.edit');
-Route::put('hotels/{hotel}/update', [HotelController::class, 'update'])->name('hotels.update');
-Route::get('hotels/{hotel}/destroy', [HotelController::class, 'destroy'])->name('hotels.destroy');
+Route::get('trips', [TripController::class, 'index'])->name('trips.index');
+Route::get('trips/create', [TripController::class, 'create'])->name('trips.create');
+Route::post('trips/store', [TripController::class, 'store'])->name('trips.store');
+Route::get('trips/{trip}/plan', [TripController::class, 'plan'])->name('trips.plan.create');
+Route::post('trips/{trip}/plan', [TripController::class, 'planStore'])->name('trips.plan.store');
+Route::get('trips/{trip}/edit', [TripController::class, 'edit'])->name('trips.edit');
+Route::put('trips/{trip}/update', [TripController::class, 'update'])->name('trips.update');
+Route::get('trips/{trip}/destroy', [TripController::class, 'destroy'])->name('trips.destroy');
 
 Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
 Route::get('contacts/create', [ContactController::class, 'create'])->name('contacts.create');

@@ -1,4 +1,1 @@
-read -sp "asdasd " username;
-
-
-echo "Hi $username"
+php artisan serve

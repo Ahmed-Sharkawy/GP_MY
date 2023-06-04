@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Dashboard\Hotel;
+namespace App\Http\Requests\Dashboard\Trip;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePlanHotelRequest extends FormRequest
+class UpdateTripRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,11 @@ class StorePlanHotelRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'    => 'required|string|max:255',
-            'days'    => 'required|string|max:255',
-            'price'   => 'required|numeric',
-            'mycosis' => 'nullable',
-            'lunch'   => 'nullable',
-            'dinner'  => 'nullable',
+            'name'        => 'required|string|max:255|min:4',
+            'location'    => 'required|string|max:255',
+            'rating'      => 'required|integer|min:1|max:5|digits:1',
+            'description' => 'required|string',
+            'image'       => 'nullable|image'
         ];
     }
 }

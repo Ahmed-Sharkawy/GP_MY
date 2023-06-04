@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Dashboard\Hotel;
+namespace App\Http\Requests\Dashboard\Trip;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateHotelRequest extends FormRequest
+class StoreTripRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class UpdateHotelRequest extends FormRequest
             'location'    => 'required|string|max:255',
             'rating'      => 'required|integer|min:1|max:5|digits:1',
             'description' => 'required|string',
-            'image'       => 'nullable|image'
+            'image'       => 'required|image'
         ];
     }
 }

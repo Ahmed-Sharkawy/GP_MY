@@ -31,22 +31,20 @@ Route::middleware('auth')->group(function () {
     Route::get('about', [HomeController::class, 'about'])->name('home.about');
     Route::get('hotel', [HomeController::class, 'hotel'])->name('home.hotel');
     Route::get('hotel/{hotel}/plan', [HomeController::class, 'plan'])->name('home.hotel.plan');
+    Route::get('trip/{trip}/plan', [HomeController::class, 'tripPlan'])->name('home.trip.plan');
     Route::get('cart', [HomeController::class, 'cart'])->name('home.cart');
     Route::get('cart/{plan}/save', [HomeController::class, 'cartSave'])->name('home.cart.save');
     Route::get('cart/{plan}/delete', [HomeController::class, 'cartDelete'])->name('home.cart.delete');
-    Route::get('program', [HomeController::class, 'program'])->name('home.program');
+    Route::get('programs', [HomeController::class, 'program'])->name('home.programs');
     Route::get('contact', [HomeController::class, 'contact'])->name('home.contact');
     Route::post('contact', [HomeController::class, 'contactStore'])->name('home.contact.store');
     Route::get('checkout', [HomeController::class, 'checkout'])->name('home.checkout');
 
-    Route::get('index', function () {
-        return view('welcome');
-    })->name('home.index');
     Route::get('paypal', [PayPalController::class, 'paypal'])->name('home.paypal');
     Route::get('paypal/success', [PayPalController::class, 'success'])->name('home.paypal.success');
     Route::get('paypal/cancel', [PayPalController::class, 'cancel'])->name('home.paypal.cancel');
 });
 
 Route::get('test', function () {
-    return view('frontend.plan');
+    return view('frontend.checkout');
 });

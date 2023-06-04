@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Contact;
+use App\Models\Trip;
 
 class HomeController extends Controller
 {
@@ -29,8 +30,14 @@ class HomeController extends Controller
 
     public function plan(Hotel $hotel)
     {
-        $hotel->load('plans:id,name,days,price,mycosis,lunch,dinner,plantable_id');
+        $data = $hotel->load('plans:id,name,days,price,mycosis,lunch,dinner,plantable_id');
         return view('frontend.plan', compact('hotel'));
+    }
+
+    public function tripPlan(Trip $trip)
+    {
+        $data = $trip->load('plans:id,name,days,price,mycosis,lunch,dinner,plantable_id');
+        return view('frontend.plan', compact('data'));
     }
 
     public function cart()
@@ -79,11 +86,18 @@ class HomeController extends Controller
 
     public function checkout()
     {
-        return view('frontend.checkout');
+        $carts = Cart::where('user_id', auth()->id())->with('user', 'plan')->get();
+
+        $total = 0;
+        foreach ($carts as $cart) {
+            $total += $cart->plan->price;
+        }
+        return view('frontend.checkout', compact('carts', 'total'));
     }
 
     public function program()
     {
-        return view('frontend.program');
+        $trips = Trip::with('plans')->get();
+        return view('frontend.program', compact('trips'));
     }
 }

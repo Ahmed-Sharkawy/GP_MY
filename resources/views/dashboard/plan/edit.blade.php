@@ -16,7 +16,7 @@
                             <small class="text-muted float-end">Default label</small>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.hotels.update', $hotel->id) }}" class="needs-validation" method="POST"
+                            <form action="{{ route('dashboard.trips.update', $hotel->id) }}" class="needs-validation" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
