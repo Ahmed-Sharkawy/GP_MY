@@ -50,6 +50,11 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(Cart::class);
     }
 
+    function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('default')

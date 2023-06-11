@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\DemoMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\HomeController;
@@ -34,17 +36,23 @@ Route::middleware('auth')->group(function () {
     Route::get('trip/{trip}/plan', [HomeController::class, 'tripPlan'])->name('home.trip.plan');
     Route::get('cart', [HomeController::class, 'cart'])->name('home.cart');
     Route::get('cart/{plan}/save', [HomeController::class, 'cartSave'])->name('home.cart.save');
-    Route::get('cart/{plan}/delete', [HomeController::class, 'cartDelete'])->name('home.cart.delete');
+    Route::get('cart/{cart}/delete', [HomeController::class, 'cartDelete'])->name('home.cart.delete');
     Route::get('programs', [HomeController::class, 'program'])->name('home.programs');
     Route::get('contact', [HomeController::class, 'contact'])->name('home.contact');
     Route::post('contact', [HomeController::class, 'contactStore'])->name('home.contact.store');
     Route::get('checkout', [HomeController::class, 'checkout'])->name('home.checkout');
 
-    Route::get('paypal', [PayPalController::class, 'paypal'])->name('home.paypal');
+    Route::post('paypal', [PayPalController::class, 'paypal'])->name('home.paypal');
     Route::get('paypal/success', [PayPalController::class, 'success'])->name('home.paypal.success');
     Route::get('paypal/cancel', [PayPalController::class, 'cancel'])->name('home.paypal.cancel');
 });
 
 Route::get('test', function () {
-    return view('frontend.checkout');
+    // toastr()->success('Data has been saved successfully!', 'Congrats');
+    flash()->addSuccess('Your payment has been accepted.');
+    flash()->addError('لقد فشات عملية الدفع حاول مرة اخري');
+    return view('welcome');
+    $requestData = session('requestData');
+    $plans       = session('plans');
+    // dd($requestData, $plans);
 });

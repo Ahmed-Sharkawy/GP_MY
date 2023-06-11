@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" /> --}}
     <link rel="icon" href="{{ asset('frontend/img/webpage-icon.png') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}" />
@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <a href="{{ route('home.cart') }}" target="_blank">
+    <a href="{{ route('home.cart') }}"  >
         <i class="fa-solid fa-cart-shopping shop"></i>
     </a>
 
@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="box footer-gallery">
-                <img src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
+                <img src="{{ asset('flasher.min.js/img/fon1.jpg') }}" alt="" />
                 <img src="{{ asset('frontend/img/fon2.jpg') }}" alt="" />
                 <img src="{{ asset('frontend/img/fon3.jpg') }}" alt="" />
                 <img src="{{ asset('frontend/img/land.avif') }}" alt="" />
@@ -113,9 +113,9 @@
     <script src="{{ asset('frontend/js/main.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/all.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
+    </script> --}}
 </body>
 
 </html>

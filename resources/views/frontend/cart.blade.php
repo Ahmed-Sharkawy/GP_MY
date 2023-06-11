@@ -34,63 +34,11 @@
                     @endforeach
                     <tr>
                         <td>
-                            <a href="{{ route('home.checkout') }}" class="btn btn-success">اذهب للدفع</a>
+                            <a href="{{ route('home.checkout') }}" class="btn btn-success @if (! count($carts)) disabled @endif">اذهب للدفع</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="test">
-                <div class="total">
-                    <p>المجموع</p>
-                    <p> {{ $total }} $</p>
-                </div>
-                <p style="text-align: center">ادفع عن طريق احدى بوابات الدفع في الاسفل</p>
-                <div class="payment">
-                    <a href="{{ route('home.checkout') }}" class="paypal"><img src="{{ asset('paypal.png') }}"
-                            alt="" srcset=""></a>
-                    <a href="{{ route('home.checkout') }}" class="paypal"><img src="{{ asset('stripe.png') }}"
-                            alt="" srcset=""></a>
-                </div>
-            </div>
         </div>
     </div>
 @endsection
-
-@push('css')
-    <style>
-        .test {
-            width: 500px;
-            /* background-color: aliceblue; */
-            border-radius: 15px;
-            margin: 0 auto;
-            padding: 15px
-        }
-
-        .payment {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 20px 10px 0 10px;
-        }
-
-        .total {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 0 50px;
-        }
-
-        .paypal {
-            width: 200px;
-            height: 38px;
-            text-align: center;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            background-size: 100% 100%;
-            border-radius: 15px
-        }
-
-        .paypal>img {
-            width: 88px;
-        }
-    </style>
-@endpush
