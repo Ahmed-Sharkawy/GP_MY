@@ -13,4 +13,14 @@ class OrderItem extends Model
         'order_id',
         'plan_id',
     ];
+
+    function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }

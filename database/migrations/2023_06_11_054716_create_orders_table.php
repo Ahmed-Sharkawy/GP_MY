@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('country');
             $table->string('state');
             $table->integer('zip');
+            $table->enum('status', [0, 1, 2])->default(0);
+            $table->string('payment_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();

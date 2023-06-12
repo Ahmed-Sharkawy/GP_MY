@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
@@ -20,5 +20,11 @@ class LoginController extends Controller
         }
 
         return redirect()->route('dashboard.');
+    }
+
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect()->route('dashboard.login');
     }
 }

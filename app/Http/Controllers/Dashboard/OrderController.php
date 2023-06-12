@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -14,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+
+        $orders = Order::query()->with('user:id,name')->get();
+        return view('dashboard.order.index', compact('orders'));
     }
 
     /**

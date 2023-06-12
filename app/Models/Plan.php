@@ -45,6 +45,11 @@ class Plan extends Model implements HasMedia
         return $this->hasMany(Cart::class);
     }
 
+    public function orderItem()
+    {
+        return $this->hasMany(orderItem::class);
+    }
+
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('default')

@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\User\UserController;
 use App\Http\Controllers\Dashboard\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
+use App\Http\Controllers\Dashboard\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\Dashboard\Admin\AdminController;
 
 Route::get('login', [LoginController::class, 'create'])->name('login')->middleware('guest:admin')->withoutMiddleware('auth:admin');
 Route::post('login', [LoginController::class, 'store'])->name('login.store')->middleware('guest:admin')->withoutMiddleware('auth:admin');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
     return view('dashboard.index');
@@ -47,3 +49,10 @@ Route::post('contacts/store', [ContactController::class, 'store'])->name('contac
 Route::get('contacts/{hotel}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
 Route::put('contacts/{hotel}/update', [ContactController::class, 'update'])->name('contacts.update');
 Route::get('contacts/{hotel}/destroy', [ContactController::class, 'destroy'])->name('contacts.destroy');
+
+Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('orders/create', [OrderController::class, 'create'])->name('orders.create');
+Route::post('orders/store', [OrderController::class, 'store'])->name('orders.store');
+Route::get('orders/{order}/edit', [OrderController::class, 'edit'])->name('orders.edit');
+Route::put('orders/{order}/update', [OrderController::class, 'update'])->name('orders.update');
+Route::get('orders/{order}/destroy', [OrderController::class, 'destroy'])->name('orders.destroy');

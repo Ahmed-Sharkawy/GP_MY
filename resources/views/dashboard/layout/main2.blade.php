@@ -37,17 +37,26 @@
     <link rel="stylesheet" href="{{ asset('backend/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/vendor/libs/node-waves/node-waves.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/vendor/libs/typeahead-js/typeahead.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/apex-charts/apex-charts.css') }}" />
-    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/swiper/swiper.css') }}" />
     <link rel="stylesheet" href="{{ asset('backend/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
     <link rel="stylesheet"
         href="{{ asset('backend/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
     <link rel="stylesheet"
         href="{{ asset('backend/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/flatpickr/flatpickr.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/swiper/swiper.css') }}" />
+
+    <!-- Row Group CSS -->
+    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css') }}" />
+    <!-- Form Validation -->
+    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/formvalidation/dist/css/formValidation.min.css') }}" />
 
     @stack('css')
+
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('backend/vendor/css/pages/cards-advance.css') }}" />
+
     <!-- Helpers -->
     <script src="{{ asset('backend/vendor/js/helpers.js') }}"></script>
 
@@ -261,7 +270,6 @@
 
 
                     {{--
-
                     <li class="menu-item">
                         <a href="app-kanban.html" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-layout-kanban"></i>
@@ -1066,7 +1074,7 @@
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- Language -->
-                            {{-- <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
+                            <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <i class="fi fi-us fis rounded-circle me-1 fs-3"></i>
@@ -1097,7 +1105,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li> --}}
+                            </li>
                             <!--/ Language -->
 
                             <!-- Style Switcher -->
@@ -1109,7 +1117,7 @@
                             <!--/ Style Switcher -->
 
                             <!-- Quick links  -->
-                            {{-- <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
+                            <li class="nav-item dropdown-shortcuts navbar-dropdown dropdown me-2 me-xl-0">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                                     <i class="ti ti-layout-grid-add ti-md"></i>
@@ -1193,7 +1201,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li> --}}
+                            </li>
                             <!-- Quick links -->
 
                             <!-- Notification -->
@@ -1267,7 +1275,7 @@
                                                 <div class="d-flex">
                                                     <div class="flex-shrink-0 me-3">
                                                         <div class="avatar">
-                                                            <img src="{{ asset('backend/img/avatars/2.png') }}" alt
+                                                            <img src="../../assets/img/avatars/2.png" alt
                                                                 class="h-auto rounded-circle" />
                                                         </div>
                                                     </div>
@@ -1316,7 +1324,7 @@
                                                 <div class="d-flex">
                                                     <div class="flex-shrink-0 me-3">
                                                         <div class="avatar">
-                                                            <img src="{{ asset('backend/img/avatars/9.png') }}" alt
+                                                            <img src="../../assets/img/avatars/9.png" alt
                                                                 class="h-auto rounded-circle" />
                                                         </div>
                                                     </div>
@@ -1367,7 +1375,7 @@
                                                 <div class="d-flex">
                                                     <div class="flex-shrink-0 me-3">
                                                         <div class="avatar">
-                                                            <img src="{{ asset('backend/img/avatars/5.png') }}" alt
+                                                            <img src="../../assets/img/avatars/5.png" alt
                                                                 class="h-auto rounded-circle" />
                                                         </div>
                                                     </div>
@@ -1391,7 +1399,7 @@
                                                 <div class="d-flex">
                                                     <div class="flex-shrink-0 me-3">
                                                         <div class="avatar">
-                                                            <img src="{{ asset('backend/img/avatars/6.png') }}" alt
+                                                            <img src="../../assets/img/avatars/6.png" alt
                                                                 class="h-auto rounded-circle" />
                                                         </div>
                                                     </div>
@@ -1524,7 +1532,7 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('dashboard.logout') }}">
+                                        <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
                                             <i class="ti ti-logout me-2 ti-sm"></i>
                                             <span class="align-middle">Log Out</span>
                                         </a>
@@ -1544,8 +1552,9 @@
                 </nav>
                 <!-- / Navbar -->
 
-                <!-- Content -->
+                <!-- Content wrapper -->
                 <div class="content-wrapper">
+                    <!-- Content -->
 
                     <!--  Main -->
                     @yield('main')
@@ -1582,8 +1591,9 @@
                     <!-- / Footer -->
 
                     <div class="content-backdrop fade"></div>
+
                 </div>
-                <!-- / Content -->
+                <!-- / Content wrapper -->
 
             </div>
             <!-- / Layout page -->
@@ -1614,9 +1624,16 @@
     @stack('scripts')
 
     <!-- Vendors JS -->
+    <script src="{{ asset('backend/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+    <!-- Flat Picker -->
+    <script src="{{ asset('backend/vendor/libs/moment/moment.js') }}"></script>
+    <script src="{{ asset('backend/vendor/libs/flatpickr/flatpickr.js') }}"></script>
+    <!-- Form Validation -->
+    <script src="{{ asset('backend/vendor/libs/formvalidation/dist/js/FormValidation.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js') }}"></script>
     <script src="{{ asset('backend/vendor/libs/apex-charts/apexcharts.js') }}"></script>
     <script src="{{ asset('backend/vendor/libs/swiper/swiper.js') }}"></script>
-    <script src="{{ asset('backend/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
 
     <!-- Main JS -->
     <script src="{{ asset('backend/js/main.js') }}"></script>
@@ -1624,6 +1641,7 @@
     <!-- Page JS -->
     <script src="{{ asset('backend/js/dashboards-analytics.js') }}"></script>
 
+    <script src="{{ asset('backend/js/tables-datatables-basic.js') }}"></script>
 
 </body>
 

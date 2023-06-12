@@ -117,9 +117,9 @@
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Password</label>
-                                    <a href="auth-forgot-password-basic.html">
+                                    {{-- <a href="auth-forgot-password-basic.html">
                                         <small>Forgot Password?</small>
-                                    </a>
+                                    </a> --}}
                                 </div>
                                 <div class="input-group input-group-merge">
                                     <input type="password" id="password" class="form-control" name="password"
@@ -139,7 +139,7 @@
                             </div>
                         </form>
 
-                        <div class="divider my-4">
+                        {{-- <div class="divider my-4">
                             <div class="divider-text">or</div>
                         </div>
 
@@ -155,7 +155,7 @@
                             <a href="javascript:;" class="btn btn-icon btn-label-twitter">
                                 <i class="tf-icons fa-brands fa-twitter fs-5"></i>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- /Register -->

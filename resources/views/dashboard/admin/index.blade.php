@@ -1,8 +1,6 @@
 @extends('dashboard.layout.main')
 
 @section('main')
-    <div class="content-wrapper">
-        <!-- Content -->
 
         <div class="container-xxl flex-grow-1 container-p-y">
             <div class="row g-4 mb-4">
@@ -239,8 +237,4 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- / Content -->
-
-    <div class="content-backdrop fade"></div>
 @endsection
