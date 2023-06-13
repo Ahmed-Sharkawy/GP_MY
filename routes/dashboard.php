@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\User\UserController;
 use App\Http\Controllers\Dashboard\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
 use App\Http\Controllers\Dashboard\OrderController;
+use App\Http\Controllers\Dashboard\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,10 @@ Route::post('orders/store', [OrderController::class, 'store'])->name('orders.sto
 Route::get('orders/{order}/edit', [OrderController::class, 'edit'])->name('orders.edit');
 Route::put('orders/{order}/update', [OrderController::class, 'update'])->name('orders.update');
 Route::get('orders/{order}/destroy', [OrderController::class, 'destroy'])->name('orders.destroy');
+
+Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
+Route::get('teams/create', [TeamController::class, 'create'])->name('teams.create');
+Route::post('teams/store', [TeamController::class, 'store'])->name('teams.store');
+Route::get('teams/{team}/edit', [TeamController::class, 'edit'])->name('teams.edit');
+Route::put('teams/{team}/update', [TeamController::class, 'update'])->name('teams.update');
+Route::get('teams/{team}/destroy', [TeamController::class, 'destroy'])->name('teams.destroy');

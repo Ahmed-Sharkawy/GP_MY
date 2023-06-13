@@ -19,108 +19,27 @@
     <div class="testimonials" id="testimonials">
         <h2 class="main-title mt-5">فريق العمل</h2>
         <div class="container">
-            <div class="box">
-                <img decoding="async" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                <h3>محمد علي</h3>
-                <span class="title">Marketing</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
+
+            @foreach ($teams as $team)
+                <div class="box">
+                    <img decoding="async" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
+                    <h3>{{ $team->name }}</h3>
+                    <span class="title">{{ $team->title }}</span>
+                    <div class="rate">
+
+                        @for ($i = 0; $i < $team->rating; $i++)
+                            <i style="color: #2196f3;" class="fa-solid fa-star"></i>
+                        @endfor
+
+                        @for ($i = 0; $i < 5 - $team->rating; $i++)
+                            <i style="color: #2196f3;" class="fa-regular fa-star"></i>
+                        @endfor
+
+                    </div>
+                    <p>{{ $team->description }}</p>
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
-                    natus
-                    quaerat ducimus
-                </p>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                <h3>ابراهيم سمير</h3>
-                <span class="title">Marketing</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
-                    natus
-                    quaerat ducimus
-                </p>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                <h3>محمود هشام</h3>
-                <span class="title">Marketing</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
-                    natus
-                    quaerat ducimus
-                </p>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                <h3>منى رضا</h3>
-                <span class="title">Marketing</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
-                    natus
-                    quaerat ducimus
-                </p>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                <h3>اسماء علي</h3>
-                <span class="title">Marketing</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
-                    natus
-                    quaerat ducimus
-                </p>
-            </div>
-            <div class="box">
-                <img decoding="async" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
-                <h3>مينا حنا</h3>
-                <span class="title">Marketing</span>
-                <div class="rate">
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="filled fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores et reiciendis voluptatum, amet est
-                    natus
-                    quaerat ducimus
-                </p>
-            </div>
+            @endforeach
+
         </div>
     </div>
     <!-- End Testimonials -->

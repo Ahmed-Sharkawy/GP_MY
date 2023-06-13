@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Contact;
+use App\Models\Team;
 use App\Models\Trip;
 
 class HomeController extends Controller
@@ -19,7 +20,8 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+        $teams = Team::get();
+        return view('frontend.about', compact('teams'));
     }
 
     public function hotel()
