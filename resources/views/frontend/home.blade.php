@@ -66,7 +66,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-lg-4">
+                        {{-- <div class="col-md-6 col-lg-4">
                             <div class="box">
                                 <img class="img-fluid" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
                                 <h4 class="p-3 text-light">الفنادق</h4>
@@ -79,7 +79,7 @@
                                         اذهب
                                     </button></a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -89,7 +89,6 @@
     <!-- end sections-->
 
     <!-- start contact us -->
-    <!-- start contact -->
     <section class="contact" id="contact">
         <h2 class="main-title mb-0">تواصل معنا</h2>
         <div class="content">
