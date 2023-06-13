@@ -80,7 +80,8 @@ class TripController extends Controller
      */
     public function destroy(Trip $trip)
     {
-        dd($trip);
+        $trip->delete();
+        return redirect()->route('dashboard.trips.index');
     }
 
     /**

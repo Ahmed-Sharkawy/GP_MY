@@ -22,7 +22,7 @@
 
             @foreach ($teams as $team)
                 <div class="box">
-                    <img decoding="async" src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
+                    <img decoding="async" src="{{ $team->getFirstMediaUrl() }}" alt="" />
                     <h3>{{ $team->name }}</h3>
                     <span class="title">{{ $team->title }}</span>
                     <div class="rate">
