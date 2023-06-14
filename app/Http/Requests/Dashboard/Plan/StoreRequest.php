@@ -21,23 +21,9 @@ class StoreRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
-        if ($this->mycosis) {
-            $this->mycosis = 1;
-        } else {
-            $this->merge(['mycosis' => 0]);
-        }
-
-        if ($this->lunch) {
-            $this->lunch = 1;
-        } else {
-            $this->merge(['lunch' => 0]);
-        }
-
-        if ($this->dinner) {
-            $this->dinner = 1;
-        } else {
-            $this->merge(['dinner' => 0]);
-        }
+        $this->mycosis = ($this->mycosis) ? $this->merge(['mycosis' => 1]) : $this->merge(['mycosis' => 0]) ;
+        $this->lunch = ($this->lunch) ? $this->merge(['lunch' => 1]) : $this->merge(['lunch' => 0]) ;
+        $this->dinner = ($this->dinner) ? $this->merge(['dinner' => 1]) : $this->merge(['dinner' => 0]) ;
     }
 
     /**
