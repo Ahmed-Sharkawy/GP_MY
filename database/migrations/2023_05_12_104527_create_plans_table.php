@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
             $table->morphs('plantable');
+            $table->foreign('plantable_id')->references('id')->on('trips')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('name');
             $table->string('days');
             $table->float('price');

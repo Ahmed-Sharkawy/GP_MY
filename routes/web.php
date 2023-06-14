@@ -48,11 +48,21 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('test', function () {
-    // toastr()->success('Data has been saved successfully!', 'Congrats');
-    flash()->addSuccess('Your payment has been accepted.');
-    flash()->addError('لقد فشات عملية الدفع حاول مرة اخري');
-    return view('welcome');
-    $requestData = session('requestData');
-    $plans       = session('plans');
-    // dd($requestData, $plans);
+
+    $mailData = [
+        'title' => 'Mail from musadiqa@musadiqa.mqawilk.com',
+        'body' => 'This is for testing email using smtp.'
+    ];
+
+    Mail::to('ahmedmaher0110@gmail.com')->send(new DemoMail($mailData));
+
+    dd("Email is sent successfully.");
+
+    // // toastr()->success('Data has been saved successfully!', 'Congrats');
+    // flash()->addSuccess('Your payment has been accepted.');
+    // flash()->addError('لقد فشات عملية الدفع حاول مرة اخري');
+    // return view('welcome');
+    // $requestData = session('requestData');
+    // $plans       = session('plans');
+    // // dd($requestData, $plans);
 });

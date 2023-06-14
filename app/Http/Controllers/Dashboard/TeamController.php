@@ -41,6 +41,8 @@ class TeamController extends Controller
     {
         $team = Team::create($request->validated());
         $team->addMedia($request->image)->toMediaCollection('default');
+
+        flash()->translate('ar')->addSuccess('تمت عملية النشاء بنجاح');
         return redirect()->route('dashboard.teams.index');
     }
 
@@ -79,6 +81,7 @@ class TeamController extends Controller
         if ($request->image)
             $team->addMedia($request->image)->toMediaCollection('default');
 
+        flash()->translate('ar')->addSuccess('تمت عملية التعديل بنجاح');
         return redirect()->route('dashboard.teams.index');
     }
 
@@ -91,6 +94,7 @@ class TeamController extends Controller
     public function destroy(Team $team)
     {
         $team->delete();
+        flash()->translate('ar')->addSuccess('تمت عملية الحذف بنجاح');
         return redirect()->route('dashboard.teams.index');
     }
 }

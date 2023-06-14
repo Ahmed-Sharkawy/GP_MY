@@ -128,7 +128,7 @@
                                                         <a href="{{ route('dashboard.teams.edit', $team->id) }}"
                                                             class="dropdown-item"><i class="ti ti-pencil me-1"></i>Edit</a>
                                                         <a href="{{ route('dashboard.teams.destroy', $team->id) }}"
-                                                            class="dropdown-item"><i class="ti ti-trash me-1"></i>Delete</a>
+                                                            class="dropdown-item delete"><i class="ti ti-trash me-1"></i>Delete</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -141,105 +141,43 @@
                 </div>
             </div>
         </div>
-        <!-- Offcanvas to add new user -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAddUser" aria-labelledby="offcanvasAddUserLabel">
-            <div class="offcanvas-header">
-                <h5 id="offcanvasAddUserLabel" class="offcanvas-title">Add User</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body mx-0 flex-grow-0 pt-0 h-100">
-                <form class="add-new-user pt-0 fv-plugins-bootstrap5 fv-plugins-framework" id="addNewUserForm"
-                    onsubmit="return false" novalidate="novalidate">
-                    <div class="mb-3 fv-plugins-icon-container">
-                        <label class="form-label" for="add-user-fullname">Full Name</label>
-                        <input type="text" class="form-control" id="add-user-fullname" placeholder="John Doe"
-                            name="userFullname" aria-label="John Doe">
-                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3 fv-plugins-icon-container">
-                        <label class="form-label" for="add-user-email">Email</label>
-                        <input type="text" id="add-user-email" class="form-control"
-                            placeholder="john.doe@example.com" aria-label="john.doe@example.com" name="userEmail">
-                        <div class="fv-plugins-message-container invalid-feedback"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="add-user-contact">Contact</label>
-                        <input type="text" id="add-user-contact" class="form-control phone-mask"
-                            placeholder="+1 (609) 988-44-11" aria-label="john.doe@example.com" name="userContact">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="add-user-company">Company</label>
-                        <input type="text" id="add-user-company" class="form-control" placeholder="Web Developer"
-                            aria-label="jdoe1" name="companyName">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="country">Country</label>
-                        <div class="position-relative"><select id="country"
-                                class="select2 form-select select2-hidden-accessible" data-select2-id="country"
-                                tabindex="-1" aria-hidden="true">
-                                <option value="" data-select2-id="2">Select</option>
-                                <option value="Australia">Australia</option>
-                                <option value="Bangladesh">Bangladesh</option>
-                                <option value="Belarus">Belarus</option>
-                                <option value="Brazil">Brazil</option>
-                                <option value="Canada">Canada</option>
-                                <option value="China">China</option>
-                                <option value="France">France</option>
-                                <option value="Germany">Germany</option>
-                                <option value="India">India</option>
-                                <option value="Indonesia">Indonesia</option>
-                                <option value="Israel">Israel</option>
-                                <option value="Italy">Italy</option>
-                                <option value="Japan">Japan</option>
-                                <option value="Korea">Korea, Republic of</option>
-                                <option value="Mexico">Mexico</option>
-                                <option value="Philippines">Philippines</option>
-                                <option value="Russia">Russian Federation</option>
-                                <option value="South Africa">South Africa</option>
-                                <option value="Thailand">Thailand</option>
-                                <option value="Turkey">Turkey</option>
-                                <option value="Ukraine">Ukraine</option>
-                                <option value="United Arab Emirates">United Arab Emirates</option>
-                                <option value="United Kingdom">United Kingdom</option>
-                                <option value="United States">United States</option>
-                            </select><span class="select2 select2-container select2-container--default" dir="ltr"
-                                data-select2-id="1" style="width: 335px;"><span class="selection"><span
-                                        class="select2-selection select2-selection--single" role="combobox"
-                                        aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
-                                        aria-labelledby="select2-country-container"><span
-                                            class="select2-selection__rendered" id="select2-country-container"
-                                            role="textbox" aria-readonly="true"><span
-                                                class="select2-selection__placeholder">Select
-                                                Country</span></span><span class="select2-selection__arrow"
-                                            role="presentation"><b role="presentation"></b></span></span></span><span
-                                    class="dropdown-wrapper" aria-hidden="true"></span></span></div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="user-role">User Role</label>
-                        <select id="user-role" class="form-select">
-                            <option value="subscriber">Subscriber</option>
-                            <option value="editor">Editor</option>
-                            <option value="maintainer">Maintainer</option>
-                            <option value="author">Author</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label" for="user-plan">Select Plan</label>
-                        <select id="user-plan" class="form-select">
-                            <option value="basic">Basic</option>
-                            <option value="enterprise">Enterprise</option>
-                            <option value="company">Company</option>
-                            <option value="team">Team</option>
-                        </select>
-                    </div>
-                    <button type="submit"
-                        class="btn btn-primary me-sm-3 me-1 data-submit waves-effect waves-light">Submit</button>
-                    <button type="reset" class="btn btn-label-secondary waves-effect"
-                        data-bs-dismiss="offcanvas">Cancel</button>
-                    <input type="hidden">
-                </form>
-            </div>
-        </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('.delete').click(function(e) {
+            e.preventDefault();
+            var href = $(this).attr('href');
+
+            Swal.fire({
+                title: 'Are you Delete?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!',
+                customClass: {
+                    confirmButton: 'btn btn-primary me-1',
+                    cancelButton: 'btn btn-label-secondary'
+                },
+                buttonsStyling: false
+            }).then(function(result) {
+                if (result.value) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Deleted!',
+                        text: 'Your file has been deleted.',
+                        customClass: {
+                            confirmButton: 'btn btn-success'
+                        }
+                    });
+                    setTimeout(function() {
+                        location.href = href
+                    }, 1000);
+                }
+            });
+        })
+    </script>
+@endpush

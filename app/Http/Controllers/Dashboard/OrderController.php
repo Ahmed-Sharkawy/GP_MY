@@ -84,6 +84,7 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         $order->delete();
+        flash()->translate('ar')->addSuccess('تمت عملية الحذف بنجاح');
         return redirect()->route('dashboard.orders.index');
     }
 }

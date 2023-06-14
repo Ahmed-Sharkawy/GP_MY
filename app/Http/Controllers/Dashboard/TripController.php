@@ -42,6 +42,7 @@ class TripController extends Controller
         $trip = Trip::create($request->validated());
         $trip->addMedia($request->image)->toMediaCollection('default');
 
+        flash()->translate('ar')->addSuccess('تمت عملية الانشاء بنجاح');
         return redirect()->route('dashboard.trips.index');
     }
 
@@ -69,6 +70,7 @@ class TripController extends Controller
         if ($request->image)
             $trip->addMedia($request->image)->toMediaCollection();
 
+        flash()->translate('ar')->addSuccess('تمت عملية التعديل بنجاح');
         return redirect()->route('dashboard.trips.index');
     }
 
@@ -81,29 +83,7 @@ class TripController extends Controller
     public function destroy(Trip $trip)
     {
         $trip->delete();
-        return redirect()->route('dashboard.trips.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Trip  $trip
-     * @return \Illuminate\Http\Response
-     */
-    public function plan(Trip $trip)
-    {
-        return view('dashboard.plan.create', compact('trip'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreTripRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function planStore(StorePlanTripRequest $request, Trip $trip)
-    {
-        $trip->plans()->create($request->validated());
+        flash()->translate('ar')->addSuccess('تمت عملية الحذف بنجاح');
         return redirect()->route('dashboard.trips.index');
     }
 }

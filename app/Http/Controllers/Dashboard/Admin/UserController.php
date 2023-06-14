@@ -81,5 +81,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        flash()->translate('ar')->addSuccess('تمت عملية الحذف بنجاح');
     }
 }

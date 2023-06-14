@@ -45,9 +45,11 @@
     <link rel="stylesheet"
         href="{{ asset('backend/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}" />
 
-    @stack('css')
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('backend/vendor/css/pages/cards-advance.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/animate-css/animate.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/vendor/libs/sweetalert2/sweetalert2.css') }}" />
+
     <!-- Helpers -->
     <script src="{{ asset('backend/vendor/js/helpers.js') }}"></script>
 
@@ -57,7 +59,7 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('backend/js/config.js') }}"></script>
 
-
+    @stack('css')
 </head>
 
 <body>
@@ -234,7 +236,7 @@
                     <li class="menu-item">
                         <a href="{{ route('dashboard.admins.index') }}" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-users"></i>
-                            <div data-i18n="Users">Admin</div>
+                            <div data-i18n="Admin">Admin</div>
                         </a>
                     </li>
 
@@ -1617,7 +1619,6 @@
 
     <script src="{{ asset('backend/vendor/js/menu.js') }}   "></script>
     <!-- endbuild -->
-    @stack('scripts')
 
     <!-- Vendors JS -->
     <script src="{{ asset('backend/vendor/libs/apex-charts/apexcharts.js') }}"></script>
@@ -1630,7 +1631,9 @@
     <!-- Page JS -->
     <script src="{{ asset('backend/js/dashboards-analytics.js') }}"></script>
 
+    <script src="{{ asset('backend/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
 
+    @stack('scripts')
 </body>
 
 </html>

@@ -84,5 +84,6 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
         $contact->delete();
+        flash()->translate('ar')->addSuccess('تمت عملية الحذف بنجاح');
     }
 }

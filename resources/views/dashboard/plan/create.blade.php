@@ -78,7 +78,7 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="col-2 btn btn-primary waves-effect waves-light">Send</button>
+                            <button type="submit" class="col-2 btn btn-primary waves-effect waves-light">Create</button>
                         </form>
                     </div>
                 </div>

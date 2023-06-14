@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\User\UserController;
 use App\Http\Controllers\Dashboard\Auth\LoginController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
 use App\Http\Controllers\Dashboard\OrderController;
+use App\Http\Controllers\Dashboard\PlanController;
 use App\Http\Controllers\Dashboard\TeamController;
 
 /*
@@ -38,11 +39,17 @@ Route::get('admins/{admin}/destroy', [AdminController::class, 'destroy'])->name(
 Route::get('trips', [TripController::class, 'index'])->name('trips.index');
 Route::get('trips/create', [TripController::class, 'create'])->name('trips.create');
 Route::post('trips/store', [TripController::class, 'store'])->name('trips.store');
-Route::get('trips/{trip}/plan', [TripController::class, 'plan'])->name('trips.plan.create');
-Route::post('trips/{trip}/plan', [TripController::class, 'planStore'])->name('trips.plan.store');
 Route::get('trips/{trip}/edit', [TripController::class, 'edit'])->name('trips.edit');
 Route::put('trips/{trip}/update', [TripController::class, 'update'])->name('trips.update');
 Route::get('trips/{trip}/destroy', [TripController::class, 'destroy'])->name('trips.destroy');
+
+///////////
+Route::get('trips/{trip}/plan', [PlanController::class, 'index'])->name('trips.plan.index');
+Route::get('trips/{trip}/plan/create', [PlanController::class, 'create'])->name('trips.plan.create');
+Route::post('trips/{trip}/plan/store', [PlanController::class, 'store'])->name('trips.plan.store');
+Route::get('trips/{plan}/plan/edit', [PlanController::class, 'edit'])->name('trips.plan.edit');
+Route::put('trips/{plan}/plan/update', [PlanController::class, 'update'])->name('trips.plan.update');
+Route::get('trips/{plan}/plan/destroy', [PlanController::class, 'destroy'])->name('trips.plan.destroy');
 
 Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
 Route::get('contacts/create', [ContactController::class, 'create'])->name('contacts.create');

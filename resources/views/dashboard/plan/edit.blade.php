@@ -9,64 +9,77 @@
             <div class="col-xl">
                 <div class="card mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Create Hotel</h5>
+                        <h5 class="mb-0">Create Trip</h5>
                         <small class="text-muted float-end">Default label</small>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('dashboard.trips.update', $hotel->id) }}" class="needs-validation"
-                            method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('dashboard.trips.plan.update', $plan->id) }}"
+                            class="needs-validation d-flex flex-wrap justify-content-between" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-fullname">Hotel Name</label>
-                                <input type="text" name="name" value="{{ old('name', $hotel->name) }}"
-                                    class="form-control @error('name') is-invalid @enderror" id="basic-default-fullname"
+
+                            <div class="col-3 mb-4">
+                                <label class="form-label" for="basic-default-name">Hotel Name</label>
+                                <input type="text" name="name" value="{{ old('name', $plan->name) }}"
+                                    class="form-control @error('name') is-invalid @enderror" id="basic-default-name"
                                     placeholder="John Doe">
                                 @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-company">Location Hotel</label>
-                                <input type="text" name="location" value="{{ old('location', $hotel->location) }}"
-                                    class="form-control @error('location') is-invalid @enderror" id="basic-default-company"
+                            <div class="col-3 mb-4">
+                                <label class="form-label" for="basic-default-company">Days Plan</label>
+                                <input type="text" name="days" value="{{ old('days', $plan->days) }}"
+                                    class="form-control @error('days') is-invalid @enderror" id="basic-default-company"
                                     placeholder="ACME Inc.">
-                                @error('location')
+                                @error('days')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-phone">Rating Hotel</label>
-                                <input type="number" name="rating" value="{{ old('rating', $hotel->rating) }}"
-                                    max="5" min="1" id="basic-default-phone"
-                                    class="form-control @error('rating') is-invalid @enderror phone-mask"
-                                    placeholder="1,2,3,4,5">
-                                @error('rating')
+                            <div class="col-3 mb-4">
+                                <label class="form-label" for="basic-default-price">Price</label>
+                                <input type="number" name="price" value="{{ old('price', $plan->price) }}"
+                                    class="form-control @error('price') is-invalid @enderror" id="basic-default-price"
+                                    placeholder="ACME Inc.">
+                                @error('price')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-message">Description</label>
-                                <textarea id="basic-default-message" name="description" class="form-control @error('description') is-invalid @enderror"
-                                    placeholder="Hi, Do you have a moment to talk Joe?">{{ old('description', $hotel->description) }}</textarea>
-                                @error('description')
+                            <div class="col-4 form-check form-switch">
+                                <label class="form-label" for="basic-default-mycosis">Mycosis</label>
+                                <input type="checkbox" name="mycosis" {{ $plan->mycosis ? ' checked' : '' }}
+                                    class="form-check-input form-control @error('price') is-invalid @enderror"
+                                    id="basic-default-mycosis">
+                                @error('mycosis')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label">Image Hotel</label>
-                                <input class="form-control @error('image') is-invalid @enderror" type="file"
-                                    name="image" id="formFile">
-                                @error('image')
+                            <div class="col-4 form-check form-switch">
+                                <label class="form-label" for="basic-default-lunch">Lunch</label>
+                                <input type="checkbox" name="lunch" {{ ($plan->lunch ? ' checked' : '') }}
+                                    class="form-check-input form-control @error('price') is-invalid @enderror"
+                                    id="basic-default-lunch">
+                                @error('lunch')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary waves-effect waves-light">Send</button>
+                            <div class="col-4 form-check form-switch">
+                                <label class="form-label" for="basic-default-dinner">Dinner</label>
+                                <input type="checkbox" name="dinner" {{ ($plan->dinner ? ' checked' : '') }}
+                                    class="form-check-input form-control @error('price') is-invalid @enderror"
+                                    id="basic-default-dinner">
+                                @error('dinner')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <button type="submit" class="col-2 btn btn-primary waves-effect waves-light">Save</button>
                         </form>
                     </div>
                 </div>

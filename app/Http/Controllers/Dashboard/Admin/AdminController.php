@@ -40,6 +40,8 @@ class AdminController extends Controller
     public function store(StoreAdminRequest $request)
     {
         Admin::create($request->validated());
+
+        flash()->translate('ar')->addSuccess('تمت عملية الانشاء بنجاح');
         return redirect()->route('dashboard.admins.index');
     }
 
@@ -75,6 +77,8 @@ class AdminController extends Controller
     public function update(UpdateAdminRequest $request, Admin $admin)
     {
         $admin->update($request->validated());
+
+        flash()->translate('ar')->addSuccess('تمت عملية التعديل بنجاح');
         return redirect()->route('dashboard.admins.index');
     }
 
@@ -87,6 +91,7 @@ class AdminController extends Controller
     public function destroy(Admin $admin)
     {
         $admin->delete();
+        flash()->translate('ar')->addSuccess('تمت عملية الحذف بنجاح');
         return redirect()->route('dashboard.admins.index');
     }
 }
