@@ -21,14 +21,23 @@ class UpdateRequest extends FormRequest
      */
     protected function prepareForValidation(): void
     {
-        if (! $this->mycosis)
+        if ($this->mycosis){
+            $this->mycosis = 1;
+        }else {
             $this->merge(['mycosis' => 0]);
+        }
 
-        if (! $this->lunch)
+        if ($this->lunch){
+            $this->lunch = 1;
+        } else {
             $this->merge(['lunch' => 0]);
+        }
 
-        if (! $this->dinner)
+        if ($this->dinner){
+            $this->dinner = 1;
+        }else {
             $this->merge(['dinner' => 0]);
+        }
     }
 
     /**
