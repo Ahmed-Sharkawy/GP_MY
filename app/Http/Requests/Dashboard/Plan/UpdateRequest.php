@@ -17,6 +17,21 @@ class UpdateRequest extends FormRequest
     }
 
     /**
+     * Prepare the data for validation.
+     */
+    protected function prepareForValidation(): void
+    {
+        if (! $this->mycosis)
+            $this->merge(['mycosis' => 0]);
+
+        if (! $this->lunch)
+            $this->merge(['lunch' => 0]);
+
+        if (! $this->dinner)
+            $this->merge(['dinner' => 0]);
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, mixed>

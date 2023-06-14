@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="img/fon1.jpg " class="img-fluid rounded-start " style="height: 100%;"
+                                    <img src="{{ asset('frontend/img/fon1.jpg') }}" class="img-fluid rounded-start " style="height: 100%;"
                                         alt="...">
                                 </div>
                             </div>

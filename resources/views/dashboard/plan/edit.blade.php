@@ -51,7 +51,7 @@
 
                             <div class="col-4 form-check form-switch">
                                 <label class="form-label" for="basic-default-mycosis">Mycosis</label>
-                                <input type="checkbox" name="mycosis" {{ $plan->mycosis ? ' checked' : '' }}
+                                <input type="checkbox" name="mycosis" value="1" {{ $plan->mycosis ? ' checked' : '' }}
                                     class="form-check-input form-control @error('price') is-invalid @enderror"
                                     id="basic-default-mycosis">
                                 @error('mycosis')
@@ -61,7 +61,7 @@
 
                             <div class="col-4 form-check form-switch">
                                 <label class="form-label" for="basic-default-lunch">Lunch</label>
-                                <input type="checkbox" name="lunch" {{ ($plan->lunch ? ' checked' : '') }}
+                                <input type="checkbox" name="lunch" value="1" {{ ($plan->lunch ? ' checked' : '') }}
                                     class="form-check-input form-control @error('price') is-invalid @enderror"
                                     id="basic-default-lunch">
                                 @error('lunch')
@@ -71,7 +71,7 @@
 
                             <div class="col-4 form-check form-switch">
                                 <label class="form-label" for="basic-default-dinner">Dinner</label>
-                                <input type="checkbox" name="dinner" {{ ($plan->dinner ? ' checked' : '') }}
+                                <input type="checkbox" name="dinner" value="1" {{ ($plan->dinner ? ' checked' : '') }}
                                     class="form-check-input form-control @error('price') is-invalid @enderror"
                                     id="basic-default-dinner">
                                 @error('dinner')

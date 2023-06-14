@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="box footer-gallery">
-                <img src="{{ asset('flasher.min.js/img/fon1.jpg') }}" alt="" />
+                <img src="{{ asset('frontend/img/fon1.jpg') }}" alt="" />
                 <img src="{{ asset('frontend/img/fon2.jpg') }}" alt="" />
                 <img src="{{ asset('frontend/img/fon3.jpg') }}" alt="" />
                 <img src="{{ asset('frontend/img/land.avif') }}" alt="" />

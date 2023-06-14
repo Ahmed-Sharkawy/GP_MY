@@ -20,21 +20,6 @@ class Plan extends Model implements HasMedia
         'dinner',
     ];
 
-    public function setMycosisAttribute($value)
-    {
-        $this->attributes['mycosis'] = 1;
-    }
-
-    public function setLunchAttribute($value)
-    {
-        $this->attributes['lunch'] = 1;
-    }
-
-    public function setDinnerAttribute($value)
-    {
-        $this->attributes['dinner'] = 1;
-    }
-
     public function plantable()
     {
         return $this->morphTo();
