@@ -233,12 +233,14 @@
                         <span class="menu-header-text">Apps &amp; Pages</span>
                     </li>
 
-                    <li class="menu-item">
-                        <a href="{{ route('dashboard.admins.index') }}" class="menu-link">
-                            <i class="menu-icon tf-icons ti ti-users"></i>
-                            <div data-i18n="Admin">Admin</div>
-                        </a>
-                    </li>
+                    @if (auth('admin')->user()->role)
+                        <li class="menu-item">
+                            <a href="{{ route('dashboard.admins.index') }}" class="menu-link">
+                                <i class="menu-icon tf-icons ti ti-users"></i>
+                                <div data-i18n="Admin">Admin</div>
+                            </a>
+                        </li>
+                    @endif
 
                     <li class="menu-item">
                         <a href="{{ route('dashboard.trips.index') }}" class="menu-link">
