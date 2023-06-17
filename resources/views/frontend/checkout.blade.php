@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="address">العنوان الثاني</label>
+                            <label for="address2">العنوان الثاني</label>
                             <input type="text" name="address2" class="form-control address2 @error('address2') is-invalid @enderror " id="address2" placeholder="1234 Main St"
                                 required>
                             @error('address2')

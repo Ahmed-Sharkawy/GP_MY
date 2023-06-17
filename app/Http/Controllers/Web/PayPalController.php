@@ -9,11 +9,12 @@ use App\Models\OrderItem;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Web\OrderRequest;
 use Srmklive\PayPal\Services\ExpressCheckout;
 
 class PayPalController extends Controller
 {
-    public function paypal(Request $request)
+    public function paypal(OrderRequest $request)
     {
         $cartPlanId = Cart::pluck('plan_id');
         $plans      = Plan::whereIn('id', $cartPlanId)->get();
